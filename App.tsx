@@ -1,20 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// https://www.figma.com/design/Zk6Q4pa5Yne1w5HWmJ8vZD/Whats-App-UI-KIT--Android---Community-?node-id=0-1&p=f&t=XrNVXAFmJoqYIcvC-0
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// https://www.figma.com/design/gkV9RgvgIsjdkTZ0ilQB2f/WhatsUp---Chatting-App-UI-Kit--Community-?node-id=2863-93625&p=f&t=bJ980PwjEsAEStSr-0
