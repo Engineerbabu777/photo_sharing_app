@@ -12,7 +12,7 @@ export const uploadToCloudinary = async (
   file: string
 ): Promise<UploadApiResponse> => {
   const options: UploadApiOptions = {
-    upload_preset: "sample_preset",
+    upload_preset: "new-data",
     unsigned: true,
   };
 
