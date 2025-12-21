@@ -1,4 +1,10 @@
-import { View, Text, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  ActivityIndicator,
+  Button,
+  StyleSheet,
+} from "react-native";
 import React, { useRef, useState } from "react";
 import { CameraType, CameraView, useCameraPermissions } from "expo-camera";
 
@@ -14,6 +20,17 @@ const CameraScreen = (props: Props) => {
     return <ActivityIndicator />;
   }
 
+  if (!permission.granted) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.message}>
+          We need your permission to show the camera
+        </Text>
+        <Button onPress={requestPermission} title="grant permission" />
+      </View>
+    );
+  }
+
   return (
     <View>
       <Text>camera</Text>
@@ -22,3 +39,28 @@ const CameraScreen = (props: Props) => {
 };
 
 export default CameraScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  message: {
+    textAlign: "center",
+    paddingBottom: 10,
+  },
+  camera: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+
+  button: {
+    flex: 1,
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "white",
+  },
+});
