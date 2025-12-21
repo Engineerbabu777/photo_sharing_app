@@ -4,9 +4,12 @@ import {
   ActivityIndicator,
   Button,
   StyleSheet,
+  Pressable,
 } from "react-native";
 import React, { useRef, useState } from "react";
 import { CameraType, CameraView, useCameraPermissions } from "expo-camera";
+import { Ionicons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type Props = {};
 
@@ -36,8 +39,17 @@ const CameraScreen = (props: Props) => {
   }
 
   return (
-    <View>
-      <Text>camera</Text>
+    <View style={styles.container}>
+      <CameraView ref={camera} style={styles.camera} facing={facing}>
+        <View className="absolute bottom-0 bg-neutral-900/20 w-full p-4">
+          <Ionicons
+            name="camera-reverse"
+            size={24}
+            color="white"
+            onPress={toggleCameraFacing}
+          />
+        </View>
+      </CameraView>
     </View>
   );
 };
