@@ -5,11 +5,13 @@ import {
   Button,
   StyleSheet,
   Pressable,
+  StatusBar,
 } from "react-native";
 import React, { useRef, useState } from "react";
 import { CameraType, CameraView, useCameraPermissions } from "expo-camera";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 
 type Props = {};
 
@@ -41,10 +43,14 @@ const CameraScreen = (props: Props) => {
   async function takePhoto() {
     const photo = await camera.current?.takePictureAsync();
     if (!photo?.uri) return;
+
+    const cloudinaryResponse = await uploadToCloudinary(photo.uri);
+    console.log(JSON.stringify(cloudinaryResponse, null, 2));
   }
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={"light-content"} />
       <CameraView ref={camera} style={styles.camera} facing={facing}>
         <View className="absolute bottom-0 bg-neutral-900/20 w-full p-4">
           <Ionicons
