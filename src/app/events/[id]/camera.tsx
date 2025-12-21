@@ -56,7 +56,6 @@ const CameraScreen = (props: Props) => {
         </View>
       </CameraView>
 
-      {/* Footer */}
       <SafeAreaView
         edges={["bottom"]}
         className="flex-row bg-transparent w-full p-4 justify-center items-center"
