@@ -31,6 +31,10 @@ const CameraScreen = (props: Props) => {
     );
   }
 
+  function toggleCameraFacing() {
+    setFacing((current) => (current === "back" ? "front" : "back"));
+  }
+
   return (
     <View>
       <Text>camera</Text>
