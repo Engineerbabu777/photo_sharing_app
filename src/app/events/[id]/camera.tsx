@@ -55,6 +55,17 @@ const CameraScreen = (props: Props) => {
           />
         </View>
       </CameraView>
+
+      {/* Footer */}
+      <SafeAreaView
+        edges={["bottom"]}
+        className="flex-row bg-transparent w-full p-4 justify-center items-center"
+      >
+        <Pressable
+          onPress={takePhoto}
+          className="bg-white rounded-full w-20 h-20"
+        />
+      </SafeAreaView>
     </View>
   );
 };
