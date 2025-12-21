@@ -38,6 +38,11 @@ const CameraScreen = (props: Props) => {
     setFacing((current) => (current === "back" ? "front" : "back"));
   }
 
+  async function takePhoto() {
+    const photo = await camera.current?.takePictureAsync();
+    if (!photo?.uri) return;
+  }
+
   return (
     <View style={styles.container}>
       <CameraView ref={camera} style={styles.camera} facing={facing}>
