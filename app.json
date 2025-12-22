@@ -15,8 +15,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.roost.prod.build.eas.PhotoSharing",
-      "appleTeamId": "85N667CY29"
+      "bundleIdentifier": "com.test.PhotoSharing"
     },
     "android": {
       "adaptiveIcon": {
@@ -29,7 +28,7 @@
         "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.roost.prod.build.eas.PhotoSharing"
+      "package": "com.test.PhotoSharing"
     },
     "web": {
       "favicon": "./assets/favicon.png"
