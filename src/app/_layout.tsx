@@ -3,37 +3,42 @@ import { DarkTheme, ThemeProvider } from "@react-navigation/native";
 import "../../global.css";
 import { Ionicons } from "@expo/vector-icons";
 import AuthProvider from "@/providers/AuthProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 export default function RootLayout() {
   return (
     <ThemeProvider value={DarkTheme}>
-      <AuthProvider>
-        <Stack>
-          <Stack.Screen
-            name="index"
-            options={{
-              title: "Events",
-              headerLargeTitle: true,
-              headerTransparent: true,
-            }}
-          />
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <Stack>
+            <Stack.Screen
+              name="index"
+              options={{
+                title: "Events",
+                headerLargeTitle: true,
+                headerTransparent: true,
+              }}
+            />
 
-          <Stack.Screen
-            name="events/[id]/camera"
-            options={{
-              title: "Camera",
-              headerBackButtonDisplayMode: "minimal",
-              headerTransparent: true,
-              headerBlurEffect: "dark",
-              headerRight: () => (
-                <Link href="/" className="mr-2 ml-2">
-                  <Ionicons name="share-outline" size={24} color="white" />
-                </Link>
-              ),
-            }}
-          />
-        </Stack>
-      </AuthProvider>
+            <Stack.Screen
+              name="events/[id]/camera"
+              options={{
+                title: "Camera",
+                headerBackButtonDisplayMode: "minimal",
+                headerTransparent: true,
+                headerBlurEffect: "dark",
+                headerRight: () => (
+                  <Link href="/" className="mr-2 ml-2">
+                    <Ionicons name="share-outline" size={24} color="white" />
+                  </Link>
+                ),
+              }}
+            />
+          </Stack>
+        </AuthProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
