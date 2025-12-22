@@ -11,3 +11,12 @@ export const insertAsset = async (newAsset: TablesInsert<"assets">) => {
 
   return data;
 };
+
+export const getAssetsForEvent = async (eventId: string) => {
+  const { data } = await supabase
+    .from("assets")
+    .select("*, profiles(*)")
+    .eq("event_id", eventId)
+    .throwOnError();
+  return data;
+};
