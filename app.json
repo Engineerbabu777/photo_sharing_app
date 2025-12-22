@@ -15,7 +15,8 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.test.PhotoSharing"
+      "bundleIdentifier": "com.test.PhotoSharing",
+      "appleTeamId": "85N667CY29"
     },
     "android": {
       "adaptiveIcon": {

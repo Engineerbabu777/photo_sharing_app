@@ -11,6 +11,7 @@ export default function Share() {
         Share Event with your friends
       </Text>
 
+      {/* USE YOUR LOCAL OR APP SCHEME */}
       {/* <QRCode value={`photosharing://events/${id}/join`} size={200} /> */}
       <QRCode
         value={`exp://192.168.1.144:8081/--/events/${id}/join`}
