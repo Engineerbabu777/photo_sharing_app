@@ -44,6 +44,14 @@ export default function RootLayout() {
                 presentation: "modal",
               }}
             />
+
+            <Stack.Screen
+              name="events/[id]/share"
+              options={{
+                title: "Share",
+                presentation: "modal",
+              }}
+            />
           </Stack>
         </AuthProvider>
       </QueryClientProvider>
