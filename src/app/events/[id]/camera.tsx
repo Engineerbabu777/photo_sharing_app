@@ -35,12 +35,10 @@ export default function CameraScreen() {
   const camera = useRef<CameraView>(null);
 
   if (!permission) {
-    // Camera permissions are still loading.
     return <ActivityIndicator />;
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet.
     return (
       <View style={styles.container}>
         <Text style={styles.message}>
@@ -63,7 +61,6 @@ export default function CameraScreen() {
     console.log(JSON.stringify(cloudinaryResponse, null, 2));
 
     insertAssetMutation.mutate(cloudinaryResponse.public_id);
-    // save it to the database assets table
   }
 
   return (
