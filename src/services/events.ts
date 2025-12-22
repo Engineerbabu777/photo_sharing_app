@@ -13,3 +13,13 @@ export async function getEventsForUser(userId: string) {
     .throwOnError();
   return data.map((event_membership) => event_membership.events);
 }
+
+export async function getEvent(id: string) {
+  const { data } = await supabase
+    .from("events")
+    .select("*, assets(*)")
+    .eq("id", id)
+    .throwOnError()
+    .single();
+  return data;
+}
