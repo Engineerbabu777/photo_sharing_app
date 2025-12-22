@@ -46,3 +46,16 @@ export async function createEvent(
 
   return data;
 }
+
+export async function joinEvent(eventId: string, userId: string) {
+  const { data } = await supabase
+    .from("event_memberships")
+    .insert({
+      event_id: eventId,
+      user_id: userId,
+    })
+    .select()
+    .single()
+    .throwOnError();
+  return data;
+}
