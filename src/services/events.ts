@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import { TablesInsert } from "@/types/supabase";
 
 export async function getEvents() {
   const { data } = await supabase.from("events").select("*").throwOnError();
@@ -21,5 +22,27 @@ export async function getEvent(id: string) {
     .eq("id", id)
     .throwOnError()
     .single();
+  return data;
+}
+
+export async function createEvent(
+  newEvent: TablesInsert<"events">,
+  userId: string
+) {
+  const { data } = await supabase
+    .from("events")
+    .insert(newEvent)
+    .select()
+    .single()
+    .throwOnError();
+
+  await supabase
+    .from("event_memberships")
+    .insert({
+      event_id: data.id,
+      user_id: userId,
+    })
+    .throwOnError();
+
   return data;
 }
