@@ -52,6 +52,14 @@ export default function RootLayout() {
                 presentation: "modal",
               }}
             />
+
+            <Stack.Screen
+              name="events/[id]/join"
+              options={{
+                title: "Join event",
+                presentation: "modal",
+              }}
+            />
           </Stack>
         </AuthProvider>
       </QueryClientProvider>
